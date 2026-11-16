@@ -1,62 +1,138 @@
 # Этерия: Осколок Луны
 
-Сюжетная RPG для Windows Command Prompt, написанная на Batch. Создайте героя, исследуйте Этерию, решайте загадки и сражайтесь, чтобы доставить лунный осколок к алтарю до рассвета.
+![Windows](https://img.shields.io/badge/platform-Windows-0078D6?style=flat-square) ![Batch](https://img.shields.io/badge/language-Batch-4B275F?style=flat-square) ![PowerShell](https://img.shields.io/badge/console-effects-PowerShell-5391FE?style=flat-square)
+
+**Сюжетная RPG для командной строки о лунном осколке, Тени и семи часах до рассвета.** Создайте героя, исследуйте Этерию, выбирайте, на что потратить время, и решите судьбу города на вершине Шпиля.
+
+> Основной язык игры — русский. README доступен на русском и английском.
+
+[Начать игру](#запуск) · [Возможности](#возможности) · [Классы](#классы) · [Маршрут](#маршрут-и-задания) · [Техническая часть](#как-устроен-проект) · [English](#english)
+
+## О проекте
+
+«Этерия: Осколок Луны» — небольшая одиночная RPG, целиком реализованная в одном `.bat`-файле. Игра объединяет выборы в диалогах, случайные загадки, пошаговые бои, управление здоровьем и временем, несколько концовок и анимированные консольные сцены.
+
+| Параметр | Значение |
+|---|---|
+| Жанр | Сюжетная RPG, исследование, пошаговые бои |
+| Платформа | Windows Command Prompt |
+| Языки интерфейса | Русский |
+| Точка входа | `etheria-moonshard.bat` |
+| Сохранение | `savegame.cfg` в текущей рабочей папке |
+| Зависимости | Встроенные `cmd.exe` и Windows PowerShell; отдельная установка библиотек не нужна |
+
+## Завязка
+
+Картограф Орин передаёт герою осколок лунного камня и просит доставить его на алтарь на вершине Шпиля до рассвета. В Этерии проснулась Тень. Чтобы добраться до финала, предстоит найти ключ от Врат, решить, стоит ли охотиться за Амулетом Света, и узнать, что Хранитель библиотеки знает о слабости противника.
+
+Начальный запас — **20 HP** и **7 часов**. Выезды в районы и некоторые решения расходуют время. Если часы закончатся до финала, город не дождётся рассвета.
 
 ## Возможности
 
-- Три класса: Воин, Маг и Вор с разными боевыми особенностями.
-- Несколько локаций, побочных заданий, загадок и сюжетных развилок.
-- Пошаговые бои: атака, защита, классовые умения и отступление.
-- Ограничение по времени: отдых и некоторые действия приближают рассвет.
-- Сохранение и продолжение через `savegame.cfg`.
-- Цветной текст, эффект печати и ASCII-анимации.
+- Создание героя с именем и выбором одного из трёх классов.
+- Городской хаб с таверной, восточным кварталом, библиотекой, Вратами и отдыхом у фонтана.
+- Необязательные задания с несколькими подходами: диалог, загадки, скрытность или бой.
+- Пошаговые бои с атакой, защитой, особыми приёмами, критическими ударами и отступлением там, где оно разрешено.
+- Управление ресурсами: отдых восстанавливает до 6 HP и отнимает час; некоторые награды лечат или уменьшают входящий урон.
+- Несколько развилок и **восемь возможных исходов**, включая опоздание, победу над Тенью и разные решения судьбы осколка.
+- Сохранение и продолжение прохождения.
+- Цветной HUD, ASCII-сцены, радужная заставка и печать реплик с эффектом набора. Нажатие клавиши пропускает задержку печати.
+
+## Классы
+
+| Класс | Обычная атака | Особый приём | Особенность |
+|---|---:|---|---|
+| Воин | 3–5 урона | Сокрушающий удар, 6–9 урона | Получает на 1 урон меньше; шанс отступить — 40% |
+| Маг | 2–4 урона | Огненный шар, 6–8 урона | Шанс отступить — 50% |
+| Вор | 2–4 урона | Удар в спину, 5–6 урона и оглушение | 30% шанс удвоить обычную атаку; шанс отступить — 75% |
+
+Особые приёмы перезаряжаются между применениями. Амулет Света дополнительно уменьшает входящий урон на 1. В библиотеке можно узнать слабость Тени: это добавляет 2 урона по финальному противнику.
+
+## Маршрут и задания
+
+Порядок посещения районов выбирает игрок. Каждое посещение сопровождается сюжетными сценами и влияет на доступные предметы и финальные варианты.
+
+| Место | Задача и награда |
+|---|---|
+| Таверна «Ржавый якорь» | Назвать пароль Орина или обойти незнакомца своим способом и получить Ключ от Врат Шпиля. Ошибка в пароле наносит урон. |
+| Восточный квартал | Сразиться со Стражем Тени, обойти его или применить классовый подход. Победа приносит Амулет Света, который ослабляет удары врагов. |
+| Старая библиотека | Ответить минимум на 2 из 3 загадок. Успех открывает слабость Тени и даёт +2 урона по ней; три верных ответа дополнительно восстанавливают 4 HP. |
+| Врата Шпиля | Использовать ключ или открыть Врата загадками. С ключом можно выбрать одну дополнительную загадку ради благословения на +5 HP. Без ключа нужно верно решить две загадки; ошибки причиняют урон. |
+| Фонтан | Восстановить до 6 HP за один час. |
+
+### Финальный выбор
+
+На алтаре можно оставить осколок, отдать его Тени, разбить или вступить в бой. Последствия зависят от здоровья и собранных предметов:
+
+- **Осколок + Амулет Света** открывают «Рассвет Этерии».
+- **Осколок без амулета** приводит к одному из двух исходов в зависимости от оставшегося здоровья.
+- **Бой с Тенью** может закончиться победой или гибелью героя.
+- **Отдать осколок** и **разбить его** ведут к отдельным концовкам.
+- **Истечение времени** завершает прохождение отдельным исходом.
 
 ## Запуск
 
-Нужны Windows 10/11, `cmd.exe` и Windows PowerShell. Запустите `etheria-moonshard.bat` двойным щелчком или из Command Prompt. Игра сохраняет прогресс в `savegame.cfg` рядом с файлом; сохранения исключены из Git.
+1. Скачайте `etheria-moonshard.bat` или ZIP этого репозитория.
+2. Запустите файл на Windows двойным щелчком либо из Command Prompt.
+3. Назовите героя, выберите класс и следуйте подсказкам в консоли.
+
+Для отображения сцен и эффектов нужны `cmd.exe` и Windows PowerShell. Современная Windows-консоль с поддержкой ANSI-цветов даст наиболее полный визуальный эффект. Сохранение создаётся как `savegame.cfg` в текущей рабочей папке; этот файл исключён из Git.
 
 ## Управление
 
-Выбирайте действие по номеру. Во время боя можно атаковать, защищаться, применять способность класса или отступить. В меню есть статус героя, заметки и сохранение.
+Игра показывает варианты с номерами — вводите соответствующую цифру. В бою доступны атака, защита, особый приём и отступление, если оно возможно. В меню героя можно посмотреть здоровье, время, инвентарь и задания, а также сохранить прохождение.
 
-## Реализация
+## Как устроен проект
 
-Основная логика написана на Windows Batch. В конец файла встроен PowerShell-код для вывода сцен и анимаций. При вызове Batch извлекает PowerShell-фрагмент из собственного файла и запускает его через `Invoke-Expression` с параметром `-ExecutionPolicy Bypass`, действующим только для этого процесса. Внешние библиотеки не требуются.
+Вся игра находится в [etheria-moonshard.bat](etheria-moonshard.bat):
 
-## Структура
+- **Batch** управляет меню, переменными состояния, диалогами, заданиями, боевой системой, сохранением и выбором концовки.
+- **Встроенный PowerShell-фрагмент** в конце того же файла печатает реплики и собирает ASCII-анимации из кадров персонажей и противников.
+- Сохранение — простой файл `savegame.cfg` с текущими значениями героя, здоровья, часов, заданий и найденных предметов.
+
+Для анимаций Batch читает встроенную секцию после маркера `#PSBEGIN` и вызывает её через `Invoke-Expression`. Вызов PowerShell использует `-ExecutionPolicy Bypass`, ограниченный этим процессом. Это описывает текущий способ запуска; перед запуском можно просмотреть содержимое файла.
+
+## Структура репозитория
 
 ```text
 etheria-moonshard/
-├── etheria-moonshard.bat
-├── README.md
-├── .gitattributes
-└── .gitignore
+├── etheria-moonshard.bat  # игра и встроенный код сцен
+├── README.md              # описание на русском и английском
+├── .gitattributes         # окончания строк Windows для .bat
+└── .gitignore             # исключает savegame.cfg
 ```
 
 ## Лицензия
 
-Лицензия не указана. Все права остаются у автора проекта.
+Лицензия не указана. Репозиторий не предоставляет отдельного разрешения на повторное использование или распространение кода.
 
 ---
 
-# Etheria: Moon Shard
+# English
 
-A story-driven RPG for Windows Command Prompt, written in Batch. Create a hero, explore Etheria, solve riddles, and deliver a lunar shard to the altar before dawn.
+**Etheria: Moon Shard** is a single-file, story-driven console RPG about a lunar shard, a waking Shadow, and seven hours until dawn. Create a hero, explore the city, solve riddles, fight, and choose what happens to Etheria at the top of the Spire.
 
 ## Features
 
-- Three character classes with distinct combat traits.
-- Multiple locations, side quests, riddles, and story branches.
-- Turn-based combat with attacks, defense, class abilities, and escape attempts.
-- Time management, save and continue, colored text, typewriter effect, and ASCII animations.
+- Three playable classes with different damage, defense, critical-hit, and escape traits.
+- A hub connecting the Rusty Anchor tavern, the East Quarter, the Old Library, the Spire Gate, and a healing fountain.
+- Optional quests with password, stealth, riddle, and combat approaches.
+- Turn-based combat with attacks, blocks, class abilities, critical hits, and limited escapes.
+- Health and time management: resting restores up to 6 HP at the cost of one hour.
+- Eight outcomes shaped by quest rewards, remaining health, the final choice, and whether time runs out.
+- Save and continue, a colored HUD, ASCII scenes, a rainbow title screen, and typewriter-style dialogue.
 
 ## Run
 
-Requires Windows 10 or 11, Command Prompt, and Windows PowerShell. Run `etheria-moonshard.bat` by double-clicking it or from Command Prompt. The game writes `savegame.cfg` beside the file; saves are excluded from Git.
+Requires Windows `cmd.exe` and Windows PowerShell. Double-click `etheria-moonshard.bat` or run it from Command Prompt. Enter the number shown for each choice. Saves are stored in `savegame.cfg` in the current working directory.
+
+## Gameplay at a glance
+
+Start with 20 HP and seven hours. The tavern can provide the Spire Gate key, the East Quarter can yield the Light Amulet, and the Library can reveal the Shadow's weakness. The amulet reduces incoming damage; the library knowledge adds damage to the final fight. At the Spire, use the shard, give it to the Shadow, break it, or fight.
 
 ## Implementation
 
-The game logic is written in Windows Batch. An embedded PowerShell section renders scenes and animations. The Batch file extracts that section from itself and invokes it with `Invoke-Expression` and process-scoped `-ExecutionPolicy Bypass`. No external libraries are required.
+The game loop, state, dialogue, quests, combat, and saving are written in Batch. An embedded PowerShell section renders typewriter text and frame-based ASCII scenes. Batch extracts the section after `#PSBEGIN` from its own file and invokes it with `Invoke-Expression` and process-scoped `-ExecutionPolicy Bypass`.
 
 ## License
 
