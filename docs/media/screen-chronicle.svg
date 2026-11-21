@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="439" height="368" viewBox="0 0 439 368" role="img" aria-label="Летопись концовок">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="439" height="368" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="438" height="367" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h415a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="220" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Летопись концовок</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#89b4fa">===============================================</tspan></text>
+<text x="22" y="65"><tspan fill="#cdd6f4">  ЛЕТОПИСЬ КОНЦОВОК</tspan></text>
+<text x="22" y="84"><tspan fill="#89b4fa">===============================================</tspan></text>
+<text x="22" y="103"></text>
+<text x="22" y="122"><tspan fill="#cdd6f4">  </tspan><tspan fill="#a6e3a1">[1] Рассвет Этерии</tspan></text>
+<text x="22" y="141"><tspan fill="#cdd6f4">  </tspan><tspan fill="#7f849c">[2] ???  - иногда лучший ответ - клинок</tspan></text>
+<text x="22" y="160"><tspan fill="#cdd6f4">  </tspan><tspan fill="#a6e3a1">[3] Рассвет дорогой ценой</tspan></text>
+<text x="22" y="179"><tspan fill="#cdd6f4">  </tspan><tspan fill="#a6e3a1">[4] Пепел и свобода</tspan></text>
+<text x="22" y="198"><tspan fill="#cdd6f4">  </tspan><tspan fill="#a6e3a1">[5] Король Теней</tspan></text>
+<text x="22" y="217"><tspan fill="#cdd6f4">  </tspan><tspan fill="#7f849c">[6] ???  - алтарь не прощает слабых</tspan></text>
+<text x="22" y="236"><tspan fill="#cdd6f4">  </tspan><tspan fill="#a6e3a1">[7] Тьма победила</tspan></text>
+<text x="22" y="255"><tspan fill="#cdd6f4">  </tspan><tspan fill="#7f849c">[8] ???  - время тоже враг</tspan></text>
+<text x="22" y="274"></text>
+<text x="22" y="293"><tspan fill="#cdd6f4">  Открыто: </tspan><tspan fill="#f9e2af">5 из 8</tspan></text>
+<text x="22" y="312"></text>
+<text x="22" y="331"><tspan fill="#7f849c">  [нажмите любую клавишу]</tspan></text>
+</g>
+</svg>

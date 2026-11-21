@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="607" height="349" viewBox="0 0 607 349" role="img" aria-label="Площадь Этерии">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="607" height="349" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="606" height="348" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h583a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="304" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Площадь Этерии</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#89b4fa">===============================================================</tspan></text>
+<text x="22" y="65"><tspan fill="#cdd6f4"> </tspan><tspan fill="#f9e2af">Арина</tspan><tspan fill="#cdd6f4"> / </tspan><tspan fill="#cba6f7">Маг</tspan><tspan fill="#cdd6f4">   HP: </tspan><tspan fill="#a6e3a1">[#############-------] 13/20</tspan><tspan fill="#cdd6f4">   До рассвета: </tspan><tspan fill="#89dceb">4 ч.</tspan></text>
+<text x="22" y="84"><tspan fill="#cdd6f4"> Локация: </tspan><tspan fill="#89dceb">Площадь Этерии</tspan></text>
+<text x="22" y="103"><tspan fill="#89b4fa">===============================================================</tspan></text>
+<text x="22" y="122"></text>
+<text x="22" y="141"><tspan fill="#cdd6f4">  Куда пойдёте?</tspan></text>
+<text x="22" y="160"></text>
+<text x="22" y="179"><tspan fill="#cdd6f4">  [1] Таверна «Ржавый якорь» </tspan><tspan fill="#a6e3a1">[выполнено]</tspan></text>
+<text x="22" y="198"><tspan fill="#cdd6f4">  [2] Восточный квартал: там кто-то стережёт амулет</tspan></text>
+<text x="22" y="217"><tspan fill="#cdd6f4">  [3] Старая библиотека: загадки Хранителя </tspan><tspan fill="#a6e3a1">[выполнено]</tspan></text>
+<text x="22" y="236"><tspan fill="#cdd6f4">  [4] Врата Шпиля - туда лучше идти подготовленным</tspan></text>
+<text x="22" y="255"><tspan fill="#cdd6f4">  [5] Отдохнуть у фонтана: +6 HP, минус 1 час</tspan></text>
+<text x="22" y="274"><tspan fill="#cdd6f4">  [6] Меню: статус и сохранение</tspan></text>
+<text x="22" y="293"></text>
+<text x="22" y="312"><tspan fill="#cdd6f4">Ваш выбор: 6</tspan></text>
+</g>
+</svg>

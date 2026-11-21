@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="632" height="672" viewBox="0 0 632 672" role="img" aria-label="Восточный квартал — бой со Стражем Тени">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="632" height="672" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="631" height="671" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h608a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="316" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Восточный квартал — бой со Стражем Тени</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#89b4fa">===============================================================</tspan></text>
+<text x="22" y="65"><tspan fill="#cdd6f4"> </tspan><tspan fill="#f9e2af">Кира</tspan><tspan fill="#cdd6f4"> / </tspan><tspan fill="#cba6f7">Воин</tspan><tspan fill="#cdd6f4">   HP: </tspan><tspan fill="#a6e3a1">[####################] 20/20</tspan><tspan fill="#cdd6f4">   До рассвета: </tspan><tspan fill="#89dceb">6 ч.</tspan></text>
+<text x="22" y="84"><tspan fill="#cdd6f4"> Локация: </tspan><tspan fill="#89dceb">Восточный квартал</tspan></text>
+<text x="22" y="103"><tspan fill="#89b4fa">===============================================================</tspan></text>
+<text x="22" y="122"></text>
+<text x="22" y="141"><tspan fill="#cdd6f4">  </tspan><tspan fill="#f38ba8">Страж Тени</tspan><tspan fill="#cdd6f4">  HP: </tspan><tspan fill="#f38ba8">[####################]</tspan><tspan fill="#cdd6f4"> 14/14</tspan></text>
+<text x="22" y="160"><tspan fill="#ffffff">                                                                      </tspan></text>
+<text x="22" y="179"><tspan fill="#ffffff">                                                                      </tspan></text>
+<text x="22" y="198"><tspan fill="#ffffff">                                                ___                   </tspan></text>
+<text x="22" y="217"><tspan fill="#ffffff">      O                                        [o_o]                  </tspan></text>
+<text x="22" y="236"><tspan fill="#ffffff">     /|\                                       /###\                  </tspan></text>
+<text x="22" y="255"><tspan fill="#ffffff">     / \                                        | |                   </tspan></text>
+<text x="22" y="274"><tspan fill="#ffffff">______________________________________________________________________</tspan></text>
+<text x="22" y="293"></text>
+<text x="22" y="312"><tspan fill="#cdd6f4">  Раунд 1. Ваш ход:</tspan></text>
+<text x="22" y="331"><tspan fill="#cdd6f4">  [1] Атака</tspan></text>
+<text x="22" y="350"><tspan fill="#cdd6f4">  [2] Защита: урон по вам вдвое меньше</tspan></text>
+<text x="22" y="369"><tspan fill="#cdd6f4">  [3] Особый приём: Сокрушающий удар - готов</tspan></text>
+<text x="22" y="388"><tspan fill="#cdd6f4">  [4] Бежать: шанс 40 из 100, при провале враг бьёт без защиты</tspan></text>
+<text x="22" y="407"></text>
+<text x="22" y="426"><tspan fill="#cdd6f4">Ваш выбор: 1</tspan></text>
+<text x="22" y="445"><tspan fill="#ffffff">                                                  -5                  </tspan></text>
+<text x="22" y="464"><tspan fill="#ffffff">                                                                      </tspan></text>
+<text x="22" y="483"><tspan fill="#ffffff">                                                 ___                  </tspan></text>
+<text x="22" y="502"><tspan fill="#ffffff">                                        O       [x_x]                 </tspan></text>
+<text x="22" y="521"><tspan fill="#ffffff">                                       /|\---&gt;  /###\                 </tspan></text>
+<text x="22" y="540"><tspan fill="#ffffff">                                       / \       | |                  </tspan></text>
+<text x="22" y="559"><tspan fill="#ffffff">______________________________________________________________________</tspan></text>
+<text x="22" y="578"><tspan fill="#a6e3a1">  Вы бьёте и наносите 5 урона.</tspan></text>
+<text x="22" y="597"><tspan fill="#f38ba8">  Страж Тени бьёт вас на 1 урона.</tspan></text>
+<text x="22" y="616"></text>
+<text x="22" y="635"><tspan fill="#7f849c">  [нажмите любую клавишу]</tspan></text>
+</g>
+</svg>

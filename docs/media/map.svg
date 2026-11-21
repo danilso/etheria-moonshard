@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320" role="img" aria-labelledby="t d">
+<title id="t">Маршрут по Этерии</title>
+<desc id="d">Схема игры: от переулка через площадь к трём заданиям и фонтану, затем к Вратам и вершине Шпиля.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1026"/><stop offset="1" stop-color="#1f1640"/></linearGradient>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b8fc7"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fcd34d"/></marker>
+<filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+.h{font:700 16px Georgia,'Times New Roman',serif;fill:#fff7ed}
+.s{font:13px 'Segoe UI',Arial,sans-serif;fill:#c4b5fd}
+.q{font:13px 'Segoe UI',Arial,sans-serif;fill:#99f6e4}
+.c{font:600 11px 'Segoe UI',Arial,sans-serif;fill:#fcd34d}
+.ln{stroke:#8b8fc7;stroke-width:1.6;fill:none}
+</style>
+<rect width="1100" height="320" rx="20" fill="url(#bg)"/>
+<text x="30" y="34" class="c" letter-spacing="3">МАРШРУТ · КАЖДЫЙ ПЕРЕХОД СТОИТ ЧАС</text>
+
+<!-- связи -->
+<path class="ln" d="M180 185H226" marker-end="url(#a)"/>
+<path class="ln" d="M400 185C435 185 435 82 466 82" marker-end="url(#a)"/>
+<path class="ln" d="M400 185C440 185 440 148 466 148" marker-end="url(#a)"/>
+<path class="ln" d="M400 185C440 185 440 214 466 214" marker-end="url(#a)"/>
+<path class="ln" d="M400 185C435 185 435 280 466 280" marker-end="url(#a)"/>
+<path class="ln" d="M720 82C750 82 745 175 766 178" stroke-dasharray="4 4" marker-end="url(#a)"/>
+<path class="ln" d="M720 148C745 148 745 180 766 182" stroke-dasharray="4 4" marker-end="url(#a)"/>
+<path class="ln" d="M720 214C745 214 745 190 766 188" stroke-dasharray="4 4" marker-end="url(#a)"/>
+<path d="M920 185H946" stroke="#fcd34d" stroke-width="2" fill="none" marker-end="url(#g)"/>
+
+<!-- узлы -->
+<rect x="30" y="150" width="150" height="70" rx="12" fill="#191c3a" stroke="#6366f1"/>
+<text x="105" y="180" class="h" text-anchor="middle">Переулок</text>
+<text x="105" y="201" class="s" text-anchor="middle">Орин и осколок</text>
+
+<rect x="230" y="150" width="170" height="70" rx="12" fill="#221a4a" stroke="#a78bfa" stroke-width="1.6"/>
+<text x="315" y="180" class="h" text-anchor="middle">Площадь</text>
+<text x="315" y="201" class="s" text-anchor="middle">хаб · 20 HP · 7 ч</text>
+
+<g>
+<rect x="470" y="55" width="250" height="54" rx="10" fill="#122a33" stroke="#2dd4bf"/>
+<text x="486" y="78" class="h" font-size="14">Таверна «Ржавый якорь»</text>
+<text x="486" y="98" class="q">пароль → ключ от Врат</text>
+<rect x="470" y="121" width="250" height="54" rx="10" fill="#122a33" stroke="#2dd4bf"/>
+<text x="486" y="144" class="h" font-size="14">Восточный квартал</text>
+<text x="486" y="164" class="q">бой/хитрость → Амулет Света</text>
+<rect x="470" y="187" width="250" height="54" rx="10" fill="#122a33" stroke="#2dd4bf"/>
+<text x="486" y="210" class="h" font-size="14">Старая библиотека</text>
+<text x="486" y="230" class="q">3 загадки → слабость Тени</text>
+<rect x="470" y="253" width="250" height="54" rx="10" fill="#1d2140" stroke="#64748b"/>
+<text x="486" y="276" class="h" font-size="14">Фонтан</text>
+<text x="486" y="296" class="s">отдых: +6 HP за 1 час</text>
+</g>
+
+<rect x="770" y="150" width="150" height="70" rx="12" fill="#221a4a" stroke="#a78bfa" stroke-width="1.6"/>
+<text x="845" y="180" class="h" text-anchor="middle">Врата Шпиля</text>
+<text x="845" y="201" class="s" text-anchor="middle">ключ или 2 загадки</text>
+
+<g filter="url(#glow)">
+<rect x="950" y="140" width="125" height="90" rx="12" fill="#3b2a12" stroke="#fcd34d" stroke-width="1.8"/>
+</g>
+<path d="M1012 152l7 16-7 18-7-18z" fill="#67e8f9"/>
+<text x="1012" y="205" class="h" text-anchor="middle">Вершина</text>
+<text x="1012" y="222" class="c" text-anchor="middle">Тень · 30 HP</text>
+</svg>

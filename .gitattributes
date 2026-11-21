@@ -1,1 +1,8 @@
-*.bat text eol=crlf
+* text=auto
+# BAT хранится в репозитории строго с CRLF: cmd.exe ломается на файлах с LF,
+# а кнопка Download raw на GitHub отдаёт файл ровно таким, каким он лежит в git.
+*.bat -text
+*.cmd -text
+*.ps1 text eol=crlf
+*.svg text eol=lf
+*.md text eol=lf

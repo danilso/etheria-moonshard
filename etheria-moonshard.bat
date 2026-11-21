@@ -1,5 +1,6 @@
 @echo off
-chcp 65001 >nul
+:: ETHERIA_TEST=1 - режим автотестов (CI): без смены кодовой страницы, ожиданий и эффектов
+if not "%ETHERIA_TEST%"=="1" chcp 65001 >nul
 setlocal enabledelayedexpansion
 title Этерия - Осколок Луны
 set "SELF=%~f0"
@@ -18,14 +19,49 @@ set "cyan=!ESC![96m"
 set "white=!ESC![97m"
 set "gray=!ESC![90m"
 
-set "SAVE=savegame.cfg"
+set "VERSION=1.1"
+:: Сохранения лежат рядом с игрой, а не в текущей папке консоли.
+set "BASEDIR=%~dp0"
+set "SAVE=!BASEDIR!savegame.cfg"
+set "PROG=!BASEDIR!etheria-progress.cfg"
 :: Задержка печатающей машинки в мс (0 = мгновенно). Любая клавиша пропускает набор.
 set "tw_delay=18"
 set "ps_mode=type"
+set "nofx=0"
+set "force_instant=0"
+
+:: Параметры запуска: --instant, --no-fx, --help
+:ARGS
+if "%~1"=="" goto ARGS_DONE
+if /i "%~1"=="--instant" set "force_instant=1"
+if /i "%~1"=="--no-fx" set "nofx=1"
+if /i "%~1"=="--help" goto USAGE
+if /i "%~1"=="/?" goto USAGE
+shift
+goto ARGS
+:ARGS_DONE
+
+:: Без PowerShell игра работает в упрощённом режиме: без анимаций и печати.
+where powershell >nul 2>&1 || set "nofx=1"
+if "!ETHERIA_TEST!"=="1" set "nofx=1"
 
 call :INIT_RIDDLES
 call :INIT_STATE
+call :LOAD_PROGRESS
+if "!force_instant!"=="1" set "tw_delay=0"
 goto SPLASH
+
+:USAGE
+echo.
+echo   Этерия: Осколок Луны v!VERSION!
+echo.
+echo   etheria-moonshard.bat [--instant] [--no-fx]
+echo.
+echo     --instant   текст появляется сразу, без эффекта печати
+echo     --no-fx     без PowerShell: без анимаций и печатающей машинки
+echo     --help      эта справка
+echo.
+exit /b 0
 
 
 :: =========================================================
@@ -93,29 +129,155 @@ echo.
 set /a "rb_shift=%random% %% 6"
 set "rb_text=  ======== ЭТЕРИЯ: ОСКОЛОК ЛУНЫ ========"
 call :RAINBOW
+echo !gray!                                        v!VERSION!!reset!
+call :COUNT_ENDINGS
+call :SAVE_INFO
 echo.
 echo   [1] Новая игра
-echo   [2] Продолжить
-echo   [3] Выйти
+if defined sv_info (
+    echo   [2] Продолжить !gray!- !sv_info!!reset!
+) else (
+    echo   !gray![2] Продолжить - сохранений нет!reset!
+)
+echo   [3] Летопись концовок !gray!- открыто !e_cnt! из 8!reset!
+echo   [4] Как играть
+echo   [5] Скорость текста !gray!- !speed_name!!reset!
+echo   [6] Выйти
 echo.
-choice /c 123 /n /m "  Ваш выбор: "
-if errorlevel 3 goto END_GAME
+call :CHOOSE /c 123456 /n /m "  Ваш выбор: "
+if errorlevel 6 goto END_GAME
+if errorlevel 5 goto SPEED_MENU
+if errorlevel 4 goto HOW_TO_PLAY
+if errorlevel 3 goto CHRONICLE
 if errorlevel 2 goto LOAD_GAME
 goto NEW_GAME
+
+:SAVE_INFO
+set "sv_info="
+set "sv_name="
+set "sv_class="
+set "sv_hours="
+set "speed_name=обычная"
+if "!tw_delay!"=="0" set "speed_name=мгновенно"
+if "!tw_delay!"=="8" set "speed_name=быстро"
+if "!tw_delay!"=="35" set "speed_name=медленно"
+if not exist "!SAVE!" goto :eof
+for /f "usebackq tokens=1* delims=:" %%a in ("!SAVE!") do (
+    if /i "%%a"=="player_name"  set "sv_name=%%b"
+    if /i "%%a"=="player_class" set "sv_class=%%b"
+    if /i "%%a"=="hours"        set "sv_hours=%%b"
+)
+if defined sv_name set "sv_info=!sv_name!, !sv_class!, до рассвета !sv_hours! ч."
+goto :eof
+
+:SPEED_MENU
+if "!tw_delay!"=="0" (set "tw_delay=8") else if "!tw_delay!"=="8" (set "tw_delay=18") else if "!tw_delay!"=="18" (set "tw_delay=35") else (set "tw_delay=0")
+call :SAVE_PROGRESS
+goto MAIN_MENU
+
+:HOW_TO_PLAY
+cls
+echo.
+echo !blue!===============================================!reset!
+echo   КАК ИГРАТЬ
+echo !blue!===============================================!reset!
+echo.
+echo   !yellow!Цель.!reset! Донести Осколок Луны до алтаря на вершине Шпиля,
+echo   пока не взошло солнце. У вас 20 HP и 7 часов.
+echo.
+echo   !yellow!Время.!reset! Каждый поход в район и попытка открыть Врата
+echo   стоят 1 час. Отдых у фонтана: +6 HP за 1 час.
+echo   Если часы кончатся раньше финала, Этерия проиграет.
+echo.
+echo   !yellow!Задания.!reset! Все три необязательны, но дают преимущества:
+echo     Таверна       - ключ от Врат, без него придётся отвечать на загадки
+echo     Восток        - Амулет Света: -1 к входящему урону и лучший финал
+echo     Библиотека    - слабость Тени: +2 урона по боссу
+echo.
+echo   !yellow!Бой.!reset! Атака, защита (урон вдвое меньше), особый приём
+echo   класса раз в 3 хода и побег, если он возможен.
+echo   Каждый четвёртый ход Тень бьёт в полную силу - закройтесь.
+echo.
+echo   !yellow!Управление.!reset! Цифры выбирают пункт меню. Любая клавиша
+echo   во время печати текста показывает его целиком.
+echo.
+echo   !gray!Подсказка: в Летописи концовок есть намёки на все 8 исходов.!reset!
+call :PAUSE
+goto MAIN_MENU
+
+:CHRONICLE
+cls
+echo.
+echo !blue!===============================================!reset!
+echo   ЛЕТОПИСЬ КОНЦОВОК
+echo !blue!===============================================!reset!
+echo.
+call :COUNT_ENDINGS
+for /l %%i in (1,1,8) do (
+    call :ENDING_META %%i
+    if "!e%%i!"=="1" (
+        echo   !green![%%i] !em_name!!reset!
+    ) else (
+        echo   !gray![%%i] ???  - !em_hint!!reset!
+    )
+)
+echo.
+echo   Открыто: !yellow!!e_cnt! из 8!reset!
+if !e_cnt! EQU 8 echo   !magenta!Летопись завершена. Этерия помнит все ваши пути.!reset!
+call :PAUSE
+goto MAIN_MENU
+
+:: Название и подсказка для концовки по номеру
+:ENDING_META
+set "em_name="
+set "em_hint="
+if "%~1"=="1" (set "em_name=Рассвет Этерии"        & set "em_hint=свет нужно встретить светом")
+if "%~1"=="2" (set "em_name=Охотник на теней"      & set "em_hint=иногда лучший ответ - клинок")
+if "%~1"=="3" (set "em_name=Рассвет дорогой ценой" & set "em_hint=алтарь без защиты требует сил")
+if "%~1"=="4" (set "em_name=Пепел и свобода"       & set "em_hint=что, если осколок не достанется никому?")
+if "%~1"=="5" (set "em_name=Король Теней"          & set "em_hint=Тень предлагает сделку")
+if "%~1"=="6" (set "em_name=Сожжённый светом"      & set "em_hint=алтарь не прощает слабых")
+if "%~1"=="7" (set "em_name=Тьма победила"         & set "em_hint=не каждый бой кончается победой")
+if "%~1"=="8" (set "em_name=Слишком поздно"        & set "em_hint=время тоже враг")
+goto :eof
+
+:COUNT_ENDINGS
+set "e_cnt=0"
+for /l %%i in (1,1,8) do if "!e%%i!"=="1" set /a e_cnt+=1
+goto :eof
+
+:LOAD_PROGRESS
+for /l %%i in (1,1,8) do set "e%%i=0"
+if not exist "!PROG!" goto :eof
+for /f "usebackq tokens=1* delims=:" %%a in ("!PROG!") do (
+    if /i "%%a"=="speed" set "tw_delay=%%b"
+    for /l %%i in (1,1,8) do if /i "%%a"=="e%%i" if "%%b"=="1" set "e%%i=1"
+)
+set /a "tw_delay=tw_delay" 2>nul
+if !tw_delay! LSS 0 set "tw_delay=18"
+if !tw_delay! GTR 100 set "tw_delay=18"
+goto :eof
+
+:SAVE_PROGRESS
+(
+    echo speed:!tw_delay!
+    for /l %%i in (1,1,8) do echo e%%i:!e%%i!
+) > "!PROG!" 2>nul
+goto :eof
 
 :NEW_GAME
 call :INIT_STATE
 goto CHARACTER_CREATION
 
 :LOAD_GAME
-if not exist "%SAVE%" (
+if not exist "!SAVE!" (
     echo.
     echo !red!  Сохранение не найдено.!reset!
-    timeout /t 2 /nobreak >nul
+    call :WAIT 2
     goto MAIN_MENU
 )
 call :INIT_STATE
-for /f "usebackq tokens=1* delims=:" %%a in ("%SAVE%") do (
+for /f "usebackq tokens=1* delims=:" %%a in ("!SAVE!") do (
     if /i "%%a"=="player_name"  set "player_name=%%b"
     if /i "%%a"=="player_class" set "player_class=%%b"
     if /i "%%a"=="hp"           set "hp=%%b"
@@ -127,7 +289,26 @@ for /f "usebackq tokens=1* delims=:" %%a in ("%SAVE%") do (
     if /i "%%a"=="has_amulet"   set "has_amulet=%%b"
     if /i "%%a"=="knows_weak"   set "knows_weak=%%b"
 )
+call :VALIDATE_STATE
+set "tw=С возвращением, !player_name!. Осколок всё ещё тёплый у вас в ладони."
+call :TWC
+call :WAIT 1
 goto HUB
+
+:: Защита от повреждённого или отредактированного сохранения
+:VALIDATE_STATE
+if not defined player_name set "player_name=Странник"
+if not "!player_class!"=="Маг" if not "!player_class!"=="Вор" set "player_class=Воин"
+set /a "hp=hp" 2>nul
+set /a "hours=hours" 2>nul
+if !hp! LSS 1 set "hp=1"
+if !hp! GTR !maxhp! set "hp=!maxhp!"
+if !hours! LSS 1 set "hours=1"
+if !hours! GTR 7 set "hours=7"
+for %%v in (q_tavern q_east q_lib has_key has_amulet knows_weak) do (
+    if not "!%%v!"=="1" set "%%v=0"
+)
+goto :eof
 
 
 :: =========================================================
@@ -150,7 +331,7 @@ echo       приём: Сокрушающий удар
 echo   [2] Маг  - слабее в ближнем бою, но мощный Огненный шар
 echo   [3] Вор  - крит-удары, Удар в спину оглушает врага
 echo.
-choice /c 123 /n /m "  Ваш выбор: "
+call :CHOOSE /c 123 /n /m "  Ваш выбор: "
 set "cc=%errorlevel%"
 set "player_class=Воин"
 if !cc! GEQ 2 set "player_class=Маг"
@@ -207,7 +388,7 @@ echo   [4] Врата Шпиля - туда лучше идти подготов
 echo   [5] Отдохнуть у фонтана: +6 HP, минус 1 час
 echo   [6] Меню: статус и сохранение
 echo.
-choice /c 123456 /n /m "  Ваш выбор: "
+call :CHOOSE /c 123456 /n /m "  Ваш выбор: "
 if errorlevel 6 goto PAUSE_MENU
 if errorlevel 5 goto REST
 if errorlevel 4 goto GATE
@@ -216,6 +397,12 @@ if errorlevel 2 goto EAST
 goto TAVERN
 
 :REST
+if !hp! GEQ !maxhp! (
+    set "tw=Вы и так полны сил. Тратить драгоценный час на отдых незачем."
+    call :TWC
+    call :PAUSE
+    goto HUB
+)
 set /a hp+=6
 if !hp! GTR !maxhp! set "hp=!maxhp!"
 set /a hours-=1
@@ -234,7 +421,7 @@ echo   [2] Сохранить игру
 echo   [3] В главное меню без сохранения
 echo   [4] Назад
 echo.
-choice /c 1234 /n /m "  Ваш выбор: "
+call :CHOOSE /c 1234 /n /m "  Ваш выбор: "
 if errorlevel 4 goto HUB
 if errorlevel 3 goto MAIN_MENU
 if errorlevel 2 goto SAVE_GAME
@@ -271,7 +458,12 @@ echo     Загадки Хранителя: !s3!
 echo.
 echo   Заметки:
 echo     - Орин велел донести осколок до алтаря до рассвета.
-echo     - Пароль для человека в таверне назвал Орин. Вспомните его.
+if not "!q_tavern!"=="1" echo     - Пароль для человека в таверне назвал Орин. Вспомните его.
+if "!has_key!"=="1" echo     - Ключ откроет Врата Шпиля без загадок.
+if not "!has_key!"=="1" echo     - Без ключа Врата потребуют ответить на две загадки.
+if not "!knows_weak!"=="1" echo     - Хранитель библиотеки знает, куда бить Тень.
+if not "!has_amulet!"=="1" echo     - Говорят, только свет Амулета гонит Тень от алтаря.
+if !hours! LEQ 2 echo     !red!- Рассвет близко. Пора идти к Вратам.!reset!
 call :PAUSE
 goto PAUSE_MENU
 
@@ -287,10 +479,15 @@ goto PAUSE_MENU
     echo has_key:!has_key!
     echo has_amulet:!has_amulet!
     echo knows_weak:!knows_weak!
-) > "%SAVE%"
+) > "!SAVE!" 2>nul || (
+    echo.
+    echo !red!  Не удалось записать сохранение. Проверьте права на папку игры.!reset!
+    call :WAIT 3
+    goto PAUSE_MENU
+)
 echo.
-echo !green!  Прогресс сохранён в %SAVE%.!reset!
-timeout /t 2 /nobreak >nul
+echo !green!  Прогресс сохранён: savegame.cfg рядом с игрой.!reset!
+call :WAIT 2
 goto PAUSE_MENU
 
 
@@ -330,7 +527,7 @@ echo   [2] «Луна»
 echo   [3] «Тень»
 echo   [4] Не отвечать и действовать по-своему: минус 1 час
 echo.
-choice /c 1234 /n /m "  Ваш ответ: "
+call :CHOOSE /c 1234 /n /m "  Ваш ответ: "
 if errorlevel 4 goto TAV_OWN
 if errorlevel 3 goto TAV_WRONG
 if errorlevel 2 goto TAV_WRONG
@@ -407,7 +604,7 @@ echo   [1] Сразиться
 echo   [2] Обойти сзади
 echo   [3] Применить особый навык класса: минус 1 час
 echo.
-choice /c 123 /n /m "  Ваш выбор: "
+call :CHOOSE /c 123 /n /m "  Ваш выбор: "
 if errorlevel 3 goto EAST_SKILL
 if errorlevel 2 goto EAST_SNEAK
 
@@ -562,7 +759,7 @@ echo.
 echo   [1] Открыть ключом
 echo   [2] Ответить на загадку и получить благословение Врат: +5 HP
 echo.
-choice /c 12 /n /m "  Ваш выбор: "
+call :CHOOSE /c 12 /n /m "  Ваш выбор: "
 if errorlevel 2 goto GATE_BONUS
 goto GATE_OPEN
 
@@ -638,7 +835,7 @@ echo   [2] Отдать осколок Тени
 echo   [3] Разбить осколок
 echo   [4] Сразиться с Тенью
 echo.
-choice /c 1234 /n /m "  Ваш выбор: "
+call :CHOOSE /c 1234 /n /m "  Ваш выбор: "
 if errorlevel 4 goto END_FIGHT
 if errorlevel 3 goto END_ASHES
 if errorlevel 2 goto END_DARK
@@ -665,6 +862,7 @@ call :TWC
 set "tw=Осколок остаётся на алтаре, тёплый и целый. Рассвет придёт сам, и вам не придётся отдавать за него ничего, кроме усталости."
 call :TW
 set "ending=Охотник на теней"
+set "ending_id=2"
 goto THE_END
 
 :END_BEST
@@ -677,6 +875,7 @@ call :TW
 set "tw=Первый луч рассвета касается Шпиля. Этерия просыпается, не зная, кто её спас."
 call :TW
 set "ending=Рассвет Этерии"
+set "ending_id=1"
 goto THE_END
 
 :END_PYRRHIC
@@ -688,6 +887,7 @@ set "tw=Вы выживаете. Город тоже. Но вы больше н�
 call :TW
 set "hp=2"
 set "ending=Рассвет дорогой ценой"
+set "ending_id=3"
 goto THE_END
 
 :END_BURN
@@ -700,6 +900,7 @@ call :TW
 set "hp=0"
 set "end_bad=1"
 set "ending=Сожжённый светом"
+set "ending_id=6"
 goto THE_END
 
 :END_DARK
@@ -710,6 +911,7 @@ call :TW
 set "tw=Этерия никогда не увидит рассвета, зато у неё появится новый властелин."
 call :TWR
 set "ending=Король Теней"
+set "ending_id=5"
 goto THE_END
 
 :END_ASHES
@@ -720,6 +922,7 @@ call :TW
 set "tw=Рассвет всё равно приходит, серый и тихий, без магии. Этерия станет обычным городом. Возможно, так даже лучше."
 call :TW
 set "ending=Пепел и свобода"
+set "ending_id=4"
 goto THE_END
 
 :END_DEAD
@@ -730,6 +933,7 @@ call :TWR
 set "hp=0"
 set "end_bad=1"
 set "ending=Тьма победила"
+set "ending_id=7"
 goto THE_END
 
 :END_LATE
@@ -739,6 +943,7 @@ set "tw=Первый луч касается Шпиля, и Тень улыба�
 call :TWR
 set "end_bad=1"
 set "ending=Слишком поздно"
+set "ending_id=8"
 goto THE_END
 
 :THE_END
@@ -753,19 +958,34 @@ if "!end_bad!"=="1" (
 )
 echo !yellow!===============================================!reset!
 echo.
-echo   Осталось часов до рассвета: !hours!, HP: !hp!/!maxhp!
+set "e_new=0"
+for %%i in (!ending_id!) do if not "!e%%i!"=="1" (
+    set "e_new=1"
+    set "e%%i=1"
+)
+if "!e_new!"=="1" call :SAVE_PROGRESS
+call :COUNT_ENDINGS
+echo   Исход !ending_id! из 8. Осталось часов: !hours!, HP: !hp!/!maxhp!
+if "!e_new!"=="1" (
+    echo   !magenta!Новая запись в Летописи концовок: открыто !e_cnt! из 8.!reset!
+) else (
+    echo   !gray!Эта концовка уже есть в Летописи: открыто !e_cnt! из 8.!reset!
+)
+if !e_cnt! EQU 8 if "!e_new!"=="1" echo   !yellow!Вы открыли все исходы Этерии. Спасибо за игру.!reset!
+:: В режиме автотестов игра завершается сразу после исхода
+if "!ETHERIA_TEST!"=="1" exit /b 0
 echo.
 echo   [1] Сыграть заново
 echo   [2] В главное меню
 echo.
-choice /c 12 /n /m "  Ваш выбор: "
+call :CHOOSE /c 12 /n /m "  Ваш выбор: "
 if errorlevel 2 goto MAIN_MENU
 goto NEW_GAME
 
 :END_GAME
 echo.
 echo   До встречи, !player_name!.
-timeout /t 2 /nobreak >nul
+call :WAIT 2
 endlocal
 exit /b 0
 
@@ -814,7 +1034,7 @@ if "!can_flee!"=="1" (
 echo.
 
 :FIGHT_ASK
-choice /c 1234 /n /m "  Ваш выбор: "
+call :CHOOSE /c 1234 /n /m "  Ваш выбор: "
 set "ch=%errorlevel%"
 set "pact=attack"
 if !ch! GEQ 2 set "pact=block"
@@ -1040,7 +1260,7 @@ echo   [1] !ra1!
 echo   [2] !ra2!
 echo   [3] !ra3!
 echo.
-choice /c 123 /n /m "  Ваш ответ: "
+call :CHOOSE /c 123 /n /m "  Ваш ответ: "
 set "pick=%errorlevel%"
 set "rid_ok=0"
 if "!pick!"=="!rok!" set "rid_ok=1"
@@ -1095,6 +1315,20 @@ if !hp! LSS 0 set "hp=0"
 echo !red!  -!dmg! HP, осталось !hp!!reset!
 goto :eof
 
+:: Обёртка над choice: при ошибке ввода (код 255) спрашивает снова,
+:: а в режиме автотестов завершает игру, когда записанный ввод кончился
+:CHOOSE
+choice %*
+set "ch_rc=!errorlevel!"
+if !ch_rc! EQU 255 if "!ETHERIA_TEST!"=="1" exit
+if !ch_rc! EQU 255 goto CHOOSE
+exit /b !ch_rc!
+
+:WAIT
+if "!ETHERIA_TEST!"=="1" goto :eof
+timeout /t %~1 /nobreak >nul
+goto :eof
+
 :PAUSE
 echo.
 echo !gray!  [нажмите любую клавишу]!reset!
@@ -1106,12 +1340,14 @@ goto :eof
 :: АНИМАЦИИ И ПЕЧАТАЮЩАЯ МАШИНКА (PowerShell внизу файла)
 :: =========================================================
 :ANIM_WALK
+if "!nofx!"=="1" goto :eof
 set "ps_mode=walk"
 call :PSRUN
 set "ps_mode=type"
 goto :eof
 
 :SCENE
+if "!nofx!"=="1" goto :eof
 call :SET_CLASS_ID
 set "ps_mode=scene"
 call :PSRUN
@@ -1131,6 +1367,14 @@ goto TYPE_RUN
 :TWC
 set "tw_color=!cyan!"
 :TYPE_RUN
+:: Мгновенный режим и режим без PowerShell печатают строку сразу
+set "tw_fast=0"
+if "!nofx!"=="1" set "tw_fast=1"
+if "!tw_delay!"=="0" set "tw_fast=1"
+if "!tw_fast!"=="1" (
+    echo   !tw_color!!tw!!reset!
+    goto :eof
+)
 <nul set /p "=!tw_color!"
 set "ps_mode=type"
 call :PSRUN

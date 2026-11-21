@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="558" viewBox="0 0 640 558" role="img" aria-label="Как играть">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="640" height="558" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="639" height="557" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h616a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="320" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Как играть</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#89b4fa">===============================================</tspan></text>
+<text x="22" y="65"><tspan fill="#cdd6f4">  КАК ИГРАТЬ</tspan></text>
+<text x="22" y="84"><tspan fill="#89b4fa">===============================================</tspan></text>
+<text x="22" y="103"></text>
+<text x="22" y="122"><tspan fill="#cdd6f4">  </tspan><tspan fill="#f9e2af">Цель.</tspan><tspan fill="#cdd6f4"> Донести Осколок Луны до алтаря на вершине Шпиля,</tspan></text>
+<text x="22" y="141"><tspan fill="#cdd6f4">  пока не взошло солнце. У вас 20 HP и 7 часов.</tspan></text>
+<text x="22" y="160"></text>
+<text x="22" y="179"><tspan fill="#cdd6f4">  </tspan><tspan fill="#f9e2af">Время.</tspan><tspan fill="#cdd6f4"> Каждый поход в район и попытка открыть Врата</tspan></text>
+<text x="22" y="198"><tspan fill="#cdd6f4">  стоят 1 час. Отдых у фонтана: +6 HP за 1 час.</tspan></text>
+<text x="22" y="217"><tspan fill="#cdd6f4">  Если часы кончатся раньше финала, Этерия проиграет.</tspan></text>
+<text x="22" y="236"></text>
+<text x="22" y="255"><tspan fill="#cdd6f4">  </tspan><tspan fill="#f9e2af">Задания.</tspan><tspan fill="#cdd6f4"> Все три необязательны, но дают преимущества:</tspan></text>
+<text x="22" y="274"><tspan fill="#cdd6f4">    Таверна       - ключ от Врат, без него придётся отвечать на загадки</tspan></text>
+<text x="22" y="293"><tspan fill="#cdd6f4">    Восток        - Амулет Света: -1 к входящему урону и лучший финал</tspan></text>
+<text x="22" y="312"><tspan fill="#cdd6f4">    Библиотека    - слабость Тени: +2 урона по боссу</tspan></text>
+<text x="22" y="331"></text>
+<text x="22" y="350"><tspan fill="#cdd6f4">  </tspan><tspan fill="#f9e2af">Бой.</tspan><tspan fill="#cdd6f4"> Атака, защита (урон вдвое меньше), особый приём</tspan></text>
+<text x="22" y="369"><tspan fill="#cdd6f4">  класса раз в 3 хода и побег, если он возможен.</tspan></text>
+<text x="22" y="388"><tspan fill="#cdd6f4">  Каждый четвёртый ход Тень бьёт в полную силу - закройтесь.</tspan></text>
+<text x="22" y="407"></text>
+<text x="22" y="426"><tspan fill="#cdd6f4">  </tspan><tspan fill="#f9e2af">Управление.</tspan><tspan fill="#cdd6f4"> Цифры выбирают пункт меню. Любая клавиша</tspan></text>
+<text x="22" y="445"><tspan fill="#cdd6f4">  во время печати текста показывает его целиком.</tspan></text>
+<text x="22" y="464"></text>
+<text x="22" y="483"><tspan fill="#cdd6f4">  </tspan><tspan fill="#7f849c">Подсказка: в Летописи концовок есть намёки на все 8 исходов.</tspan></text>
+<text x="22" y="502"></text>
+<text x="22" y="521"><tspan fill="#7f849c">  [нажмите любую клавишу]</tspan></text>
+</g>
+</svg>

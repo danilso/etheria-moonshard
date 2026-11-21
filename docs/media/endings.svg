@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320" role="img" aria-labelledby="t d">
+<title id="t">Восемь исходов Этерии</title>
+<desc id="d">Четыре решения на вершине Шпиля и опоздание ведут к восьми концовкам.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1026"/><stop offset="1" stop-color="#1f1640"/></linearGradient>
+</defs>
+<style>
+.h{font:700 15px Georgia,'Times New Roman',serif;fill:#fff7ed}
+.k{font:700 13px Georgia,'Times New Roman',serif;fill:#fff7ed}
+.s{font:12px 'Segoe UI',Arial,sans-serif;fill:#cbd5e1}
+.n{font:700 12px 'Segoe UI',Arial,sans-serif}
+.c{font:600 11px 'Segoe UI',Arial,sans-serif;fill:#fcd34d}
+.ln{stroke:#4b4f86;stroke-width:1.5}
+.good{fill:#0f2f2b;stroke:#2dd4bf}
+.mid{fill:#33270f;stroke:#f59e0b}
+.bad{fill:#341525;stroke:#fb7185}
+</style>
+<rect width="1100" height="320" rx="20" fill="url(#bg)"/>
+<text x="30" y="34" class="c" letter-spacing="3">ВЕРШИНА ШПИЛЯ · 4 РЕШЕНИЯ · 8 ИСХОДОВ</text>
+
+<!-- колонки решений -->
+<g>
+<rect x="30" y="54" width="200" height="40" rx="10" fill="#221a4a" stroke="#a78bfa"/>
+<text x="130" y="79" class="h" text-anchor="middle">Положить на алтарь</text>
+<rect x="245" y="54" width="200" height="40" rx="10" fill="#221a4a" stroke="#a78bfa"/>
+<text x="345" y="79" class="h" text-anchor="middle">Сразиться с Тенью</text>
+<rect x="460" y="54" width="200" height="40" rx="10" fill="#221a4a" stroke="#a78bfa"/>
+<text x="560" y="79" class="h" text-anchor="middle">Отдать осколок</text>
+<rect x="675" y="54" width="200" height="40" rx="10" fill="#221a4a" stroke="#a78bfa"/>
+<text x="775" y="79" class="h" text-anchor="middle">Разбить осколок</text>
+<rect x="890" y="54" width="180" height="40" rx="10" fill="#1d2140" stroke="#64748b" stroke-dasharray="4 3"/>
+<text x="980" y="79" class="h" text-anchor="middle">Часы на нуле</text>
+</g>
+
+<g class="ln">
+<path d="M130 94V110M345 94V110M560 94V110M775 94V110M980 94V110"/>
+</g>
+
+<!-- исходы -->
+<g>
+<rect class="good" x="30" y="110" width="200" height="58" rx="10"/>
+<text x="44" y="133" class="n" fill="#5eead4">1</text><text x="58" y="133" class="k">Рассвет Этерии</text>
+<text x="44" y="155" class="s">есть Амулет Света</text>
+
+<rect class="mid" x="30" y="178" width="200" height="58" rx="10"/>
+<text x="44" y="201" class="n" fill="#fbbf24">3</text><text x="58" y="201" class="k">Рассвет дорогой ценой</text>
+<text x="44" y="223" class="s">без амулета, HP ≥ 10</text>
+
+<rect class="bad" x="30" y="246" width="200" height="58" rx="10"/>
+<text x="44" y="269" class="n" fill="#fb7185">6</text><text x="58" y="269" class="k">Сожжённый светом</text>
+<text x="44" y="291" class="s">без амулета, HP &lt; 10</text>
+
+<rect class="good" x="245" y="110" width="200" height="58" rx="10"/>
+<text x="259" y="133" class="n" fill="#5eead4">2</text><text x="273" y="133" class="k">Охотник на теней</text>
+<text x="259" y="155" class="s">победа над боссом</text>
+
+<rect class="bad" x="245" y="178" width="200" height="58" rx="10"/>
+<text x="259" y="201" class="n" fill="#fb7185">7</text><text x="273" y="201" class="k">Тьма победила</text>
+<text x="259" y="223" class="s">HP упало до нуля</text>
+
+<rect class="mid" x="460" y="110" width="200" height="58" rx="10"/>
+<text x="474" y="133" class="n" fill="#fbbf24">5</text><text x="488" y="133" class="k">Король Теней</text>
+<text x="474" y="155" class="s">город без рассвета</text>
+
+<rect class="mid" x="675" y="110" width="200" height="58" rx="10"/>
+<text x="689" y="133" class="n" fill="#fbbf24">4</text><text x="703" y="133" class="k">Пепел и свобода</text>
+<text x="689" y="155" class="s">рассвет без магии</text>
+
+<rect class="bad" x="890" y="110" width="180" height="58" rx="10"/>
+<text x="904" y="133" class="n" fill="#fb7185">8</text><text x="918" y="133" class="k">Слишком поздно</text>
+<text x="904" y="155" class="s">рассвет наступил раньше</text>
+</g>
+
+<!-- легенда -->
+<g transform="translate(675 262)">
+<rect width="14" height="14" rx="3" class="good"/><text x="22" y="12" class="s">светлый исход</text>
+<rect x="130" width="14" height="14" rx="3" class="mid"/><text x="152" y="12" class="s">цена или сделка</text>
+<rect x="275" width="14" height="14" rx="3" class="bad"/><text x="297" y="12" class="s">поражение</text>
+</g>
+</svg>

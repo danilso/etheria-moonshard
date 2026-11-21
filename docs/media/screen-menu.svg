@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="439" height="273" viewBox="0 0 439 273" role="img" aria-label="Этерия: Осколок Луны — главное меню">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="439" height="273" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="438" height="272" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h415a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="220" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Этерия: Осколок Луны — главное меню</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#f9e2af"> </tspan><tspan fill="#a6e3a1"> </tspan><tspan fill="#89dceb">=</tspan><tspan fill="#89b4fa">=</tspan><tspan fill="#cba6f7">=</tspan><tspan fill="#f38ba8">=</tspan><tspan fill="#f9e2af">=</tspan><tspan fill="#a6e3a1">=</tspan><tspan fill="#89dceb">=</tspan><tspan fill="#89b4fa">=</tspan><tspan fill="#cba6f7"> </tspan><tspan fill="#f38ba8">Э</tspan><tspan fill="#f9e2af">Т</tspan><tspan fill="#a6e3a1">Е</tspan><tspan fill="#89dceb">Р</tspan><tspan fill="#89b4fa">И</tspan><tspan fill="#cba6f7">Я</tspan><tspan fill="#f38ba8">:</tspan><tspan fill="#f9e2af"> </tspan><tspan fill="#a6e3a1">О</tspan><tspan fill="#89dceb">С</tspan><tspan fill="#89b4fa">К</tspan><tspan fill="#cba6f7">О</tspan><tspan fill="#f38ba8">Л</tspan><tspan fill="#f9e2af">О</tspan><tspan fill="#a6e3a1">К</tspan><tspan fill="#89dceb"> </tspan><tspan fill="#89b4fa">Л</tspan><tspan fill="#cba6f7">У</tspan><tspan fill="#f38ba8">Н</tspan><tspan fill="#f9e2af">Ы</tspan><tspan fill="#a6e3a1"> </tspan><tspan fill="#89dceb">=</tspan><tspan fill="#89b4fa">=</tspan><tspan fill="#cba6f7">=</tspan><tspan fill="#f38ba8">=</tspan><tspan fill="#f9e2af">=</tspan><tspan fill="#a6e3a1">=</tspan><tspan fill="#89dceb">=</tspan><tspan fill="#89b4fa">=</tspan></text>
+<text x="22" y="65"><tspan fill="#7f849c">                                        v1.1</tspan></text>
+<text x="22" y="84"></text>
+<text x="22" y="103"><tspan fill="#cdd6f4">  [1] Новая игра</tspan></text>
+<text x="22" y="122"><tspan fill="#cdd6f4">  [2] Продолжить </tspan><tspan fill="#7f849c">- Арина, Маг, до рассвета 4 ч.</tspan></text>
+<text x="22" y="141"><tspan fill="#cdd6f4">  [3] Летопись концовок </tspan><tspan fill="#7f849c">- открыто 5 из 8</tspan></text>
+<text x="22" y="160"><tspan fill="#cdd6f4">  [4] Как играть</tspan></text>
+<text x="22" y="179"><tspan fill="#cdd6f4">  [5] Скорость текста </tspan><tspan fill="#7f849c">- мгновенно</tspan></text>
+<text x="22" y="198"><tspan fill="#cdd6f4">  [6] Выйти</tspan></text>
+<text x="22" y="217"></text>
+<text x="22" y="236"><tspan fill="#cdd6f4">Ваш выбор: 4</tspan></text>
+</g>
+</svg>

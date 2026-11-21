@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="514" height="539" viewBox="0 0 514 539" role="img" aria-label="Статус и заметки">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="514" height="539" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="513" height="538" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h490a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="257" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Статус и заметки</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#89b4fa">===============================================</tspan></text>
+<text x="22" y="65"><tspan fill="#cdd6f4">  СТАТУС И ЗАМЕТКИ</tspan></text>
+<text x="22" y="84"><tspan fill="#89b4fa">===============================================</tspan></text>
+<text x="22" y="103"></text>
+<text x="22" y="122"><tspan fill="#cdd6f4">  Имя:    </tspan><tspan fill="#ffffff">Арина</tspan></text>
+<text x="22" y="141"><tspan fill="#cdd6f4">  Класс:  </tspan><tspan fill="#ffffff">Маг</tspan></text>
+<text x="22" y="160"><tspan fill="#cdd6f4">  HP:     13/20</tspan></text>
+<text x="22" y="179"><tspan fill="#cdd6f4">  Время до рассвета: 4 ч.</tspan></text>
+<text x="22" y="198"></text>
+<text x="22" y="217"><tspan fill="#cdd6f4">  Инвентарь:</tspan></text>
+<text x="22" y="236"><tspan fill="#cdd6f4">    - Осколок Луны</tspan></text>
+<text x="22" y="255"><tspan fill="#cdd6f4">    - Ключ от Врат Шпиля</tspan></text>
+<text x="22" y="274"><tspan fill="#cdd6f4">    - Знание: слабость Тени, +2 урона по Тени</tspan></text>
+<text x="22" y="293"></text>
+<text x="22" y="312"><tspan fill="#cdd6f4">  Задания:</tspan></text>
+<text x="22" y="331"><tspan fill="#cdd6f4">    Человек в таверне: </tspan><tspan fill="#a6e3a1">выполнено</tspan></text>
+<text x="22" y="350"><tspan fill="#cdd6f4">    Страж в восточном квартале: </tspan><tspan fill="#f38ba8">не выполнено</tspan></text>
+<text x="22" y="369"><tspan fill="#cdd6f4">    Загадки Хранителя: </tspan><tspan fill="#a6e3a1">выполнено</tspan></text>
+<text x="22" y="388"></text>
+<text x="22" y="407"><tspan fill="#cdd6f4">  Заметки:</tspan></text>
+<text x="22" y="426"><tspan fill="#cdd6f4">    - Орин велел донести осколок до алтаря до рассвета.</tspan></text>
+<text x="22" y="445"><tspan fill="#cdd6f4">    - Ключ откроет Врата Шпиля без загадок.</tspan></text>
+<text x="22" y="464"><tspan fill="#cdd6f4">    - Говорят, только свет Амулета гонит Тень от алтаря.</tspan></text>
+<text x="22" y="483"></text>
+<text x="22" y="502"><tspan fill="#7f849c">  [нажмите любую клавишу]</tspan></text>
+</g>
+</svg>

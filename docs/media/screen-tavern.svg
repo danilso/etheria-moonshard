@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="649" height="406" viewBox="0 0 649 406" role="img" aria-label="Таверна «Ржавый якорь»">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="649" height="406" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="648" height="405" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h625a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="324" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Таверна «Ржавый якорь»</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#89b4fa">===============================================================</tspan></text>
+<text x="22" y="65"><tspan fill="#cdd6f4"> </tspan><tspan fill="#f9e2af">Кира</tspan><tspan fill="#cdd6f4"> / </tspan><tspan fill="#cba6f7">Вор</tspan><tspan fill="#cdd6f4">   HP: </tspan><tspan fill="#a6e3a1">[####################] 20/20</tspan><tspan fill="#cdd6f4">   До рассвета: </tspan><tspan fill="#89dceb">6 ч.</tspan></text>
+<text x="22" y="84"><tspan fill="#cdd6f4"> Локация: </tspan><tspan fill="#89dceb">Таверна Ржавый якорь</tspan></text>
+<text x="22" y="103"><tspan fill="#89b4fa">===============================================================</tspan></text>
+<text x="22" y="122"></text>
+<text x="22" y="141"></text>
+<text x="22" y="160"><tspan fill="#cdd6f4">  Дверь таверны распахивается с протяжным скрипом. Внутри пахнет дымом и</tspan></text>
+<text x="22" y="179"><tspan fill="#cdd6f4">  пивом, а в самом тёмном углу сидит человек в капюшоне и вертит на</tspan></text>
+<text x="22" y="198"><tspan fill="#cdd6f4">  цепочке ключ.</tspan></text>
+<text x="22" y="217"><tspan fill="#cdd6f4">  </tspan><tspan fill="#89dceb">Вы оцениваете замок на цепочке и пути отхода быстрее, чем успеваете</tspan></text>
+<text x="22" y="236"><tspan fill="#cdd6f4">  </tspan><tspan fill="#89dceb">моргнуть.</tspan></text>
+<text x="22" y="255"></text>
+<text x="22" y="274"><tspan fill="#cdd6f4">  </tspan><tspan fill="#f9e2af">Незнакомец поднимает голову. Из-под капюшона блестят глаза. Пароль.</tspan></text>
+<text x="22" y="293"></text>
+<text x="22" y="312"><tspan fill="#cdd6f4">  [1] «Рассвет»</tspan></text>
+<text x="22" y="331"><tspan fill="#cdd6f4">  [2] «Луна»</tspan></text>
+<text x="22" y="350"><tspan fill="#cdd6f4">  [3] «Тень»</tspan></text>
+<text x="22" y="369"><tspan fill="#cdd6f4">  [4] Не отвечать и действовать по-своему: минус 1 час</tspan></text>
+</g>
+</svg>

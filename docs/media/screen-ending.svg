@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="657" height="292" viewBox="0 0 657 292" role="img" aria-label="Концовка: Рассвет Этерии">
+<style>
+text{font-family:'Cascadia Mono','Cascadia Code',Consolas,'DejaVu Sans Mono',Menlo,monospace;font-size:14px;white-space:pre}
+
+</style>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#1e1e2e"/><stop offset="1" stop-color="#151522"/></linearGradient></defs>
+<rect width="657" height="292" rx="12" fill="url(#bg)"/>
+<rect x=".5" y=".5" width="656" height="291" rx="12" fill="none" stroke="#313244"/>
+<path d="M12 .5h633a11.5 11.5 0 0 1 11.5 11.5v18H.5V12A11.5 11.5 0 0 1 12 .5z" fill="#181825"/>
+<circle cx="22" cy="15.5" r="5.5" fill="#f38ba8"/><circle cx="40" cy="15.5" r="5.5" fill="#f9e2af"/><circle cx="58" cy="15.5" r="5.5" fill="#a6e3a1"/>
+<text x="328" y="20" text-anchor="middle" style="font-size:12px" fill="#7f849c">Концовка: Рассвет Этерии</text>
+<g xml:space="preserve">
+<text x="22" y="46"><tspan fill="#cdd6f4">  </tspan><tspan fill="#89dceb">Осколок ложится на алтарь, и амулет на вашей груди вспыхивает ему в</tspan></text>
+<text x="22" y="65"><tspan fill="#cdd6f4">  </tspan><tspan fill="#89dceb">ответ. Свет поднимается столбом до самых звёзд.</tspan></text>
+<text x="22" y="84"><tspan fill="#cdd6f4">  Тень кричит вашим голосом и тает, как дым на ветру.</tspan></text>
+<text x="22" y="103"><tspan fill="#cdd6f4">  Первый луч рассвета касается Шпиля. Этерия просыпается, не зная, кто её</tspan></text>
+<text x="22" y="122"><tspan fill="#cdd6f4">  спас.</tspan></text>
+<text x="22" y="141"></text>
+<text x="22" y="160"><tspan fill="#f9e2af">===============================================</tspan></text>
+<text x="22" y="179"><tspan fill="#f38ba8"> </tspan><tspan fill="#f9e2af"> </tspan><tspan fill="#a6e3a1">К</tspan><tspan fill="#89dceb">О</tspan><tspan fill="#89b4fa">Н</tspan><tspan fill="#cba6f7">Ц</tspan><tspan fill="#f38ba8">О</tspan><tspan fill="#f9e2af">В</tspan><tspan fill="#a6e3a1">К</tspan><tspan fill="#89dceb">А</tspan><tspan fill="#89b4fa">:</tspan><tspan fill="#cba6f7"> </tspan><tspan fill="#f38ba8">Р</tspan><tspan fill="#f9e2af">а</tspan><tspan fill="#a6e3a1">с</tspan><tspan fill="#89dceb">с</tspan><tspan fill="#89b4fa">в</tspan><tspan fill="#cba6f7">е</tspan><tspan fill="#f38ba8">т</tspan><tspan fill="#f9e2af"> </tspan><tspan fill="#a6e3a1">Э</tspan><tspan fill="#89dceb">т</tspan><tspan fill="#89b4fa">е</tspan><tspan fill="#cba6f7">р</tspan><tspan fill="#f38ba8">и</tspan><tspan fill="#f9e2af">и</tspan></text>
+<text x="22" y="198"><tspan fill="#f9e2af">===============================================</tspan></text>
+<text x="22" y="217"></text>
+<text x="22" y="236"><tspan fill="#cdd6f4">  Исход 1 из 8. Осталось часов: 3, HP: 20/20</tspan></text>
+<text x="22" y="255"><tspan fill="#cdd6f4">  </tspan><tspan fill="#cba6f7">Новая запись в Летописи концовок: открыто 5 из 8.</tspan></text>
+</g>
+</svg>
